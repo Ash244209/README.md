@@ -6,21 +6,42 @@
     <title>Ashton James Barral's Website</title>
     <style>
       body { font-family: Arial, sans-serif; max-width: 800px;
-             margin: 0 auto; padding: 20px; background: #f5f5f5; }
+             margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333333; transition: background 0.3s, color 0.3s; }
       h1   { color: #1F4E79; }
       h2   { color: #2E75B6; border-bottom: 2px solid #2E75B6; }
       p    { line-height: 1.6; }
       img  { max-width: 100%; height: auto; border-radius: 8px; }
+      
+      .toggle-btn {
+        padding: 10px 15px;
+        font-weight: bold;
+        background-color: #2E75B6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      body.dark-mode {
+        background: #121212;
+        color: #e0e0e0;
+      }
+      body.dark-mode h1 { color: #5B9BD5; }
+      body.dark-mode h2 { color: #5B9BD5; border-bottom: 2px solid #5B9BD5; }
+      body.dark-mode a { color: #4a90e2; }
+      body.dark-mode .toggle-btn { background-color: #5B9BD5; color: #121212; }
     </style>
   </head>
   <body>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
     <h1>Hi, I'm Ashton James Barral!</h1>
  
     <h2>About Me</h2>
     <p>I like to play basketball and I am from the Philippines</p>
  
-    <!-- FIXED: Added the closing quotation mark after /giphy.gif -->
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjdwZ2NsbHE2OWU5MjJwbzRmNTB6bmd6Z3Y4NDdraTY0YXY4b3plZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hS36nlCKcm2vGDzdjY/giphy.gif" alt="Ashton playing basketball">
+    <img src="https://giphy.com" alt="Ashton playing basketball">
 
     <h2>My Interests</h2>
     <p>I play basketball and workout in the weight room</p>
@@ -30,11 +51,23 @@
  
     <h2>My GitHub</h2>
     <p>Check out my projects:</p> 
-    <!-- FIXED: Changed <u1> to <ul> with a letter L -->
     <ul>
-      <li><a href="https://github.com/ash244209">ash244209</a></li>
-      <li><a href="https://www.tinkercad.com/things/8G0JZhdXX8f-initial-contact">Initial Contact</a></li>
-      <li><a href="https://cad.onshape.com/documents/60ecd1957e7d31feb3ee738f/w/9ff15aff14a705c13d26c48e/e/6efcdb36a61a393e3a774b95" target="_blank">View CAD Model</a></li>
+      <li><a href="https://github.com">ash244209</a></li>
+      <li><a href="https://tinkercad.com">Initial Contact</a></li>
+      <li><a href="https://onshape.com" target="_blank">View CAD Model</a></li>
     </ul>
+
+    <script>
+      function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+        const button = document.querySelector('.toggle-btn');
+        if (body.classList.contains('dark-mode')) {
+          button.innerHTML = "☀️ Light Mode";
+        } else {
+          button.innerHTML = "🌙 Dark Mode";
+        }
+      }
+    </script>
   </body>
 </html>
